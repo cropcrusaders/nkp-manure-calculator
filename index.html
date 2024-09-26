@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manure NPK Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .calculator {
+            max-width: 400px;
+        }
+        label, input, select {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 5px;
+        }
+        .results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Manure NPK Calculator</h1>
+        <label for="manureType">Select Manure Type:</label>
+        <select id="manureType">
+            <option value="chicken">Chicken</option>
+            <option value="cow">Cow</option>
+            <option value="horse">Horse</option>
+            <option value="pig">Pig</option>
+        </select>
+
+        <label for="quantityKg">Enter Quantity (kg):</label>
+        <input type="number" id="quantityKg" min="0" step="any">
+
+        <button onclick="calculateNPK()">Calculate</button>
+
+        <div class="results" id="results"></div>
+    </div>
+
+    <script>
+        const manureNPKValues = {
+            "chicken": {"N": 1.5, "P": 1.3, "K": 0.8},
+            "cow": {"N": 0.6, "P": 0.4, "K": 0.5},
+            "horse": {"N": 0.7, "P": 0.3, "K": 0.6},
+            "pig": {"N": 0.7, "P": 0.5, "K": 0.4}
+        };
+
+        function calculateNPK() {
+            const manureType = document.getElementById('manureType').value;
+            const quantityKg = parseFloat(document.getElementById('quantityKg').value);
+
+            if (manureType in manureNPKValues && !isNaN(quantityKg)) {
+                const npk = manureNPKValues[manureType];
+                const totalN = (npk["N"] / 100) * quantityKg;
+                const totalP = (npk["P"] / 100) * quantityKg;
+                const totalK = (npk["K"] / 100) * quantityKg;
+
+                const resultsDiv = document.getElementById('results');
+                resultsDiv.innerHTML = `
+                    <h2>Results:</h2>
+                    <p>For ${quantityKg} kg of ${manureType} manure, you get:</p>
+                    <ul>
+                        <li>Nitrogen (N): ${totalN.toFixed(2)} kg</li>
+                        <li>Phosphorus (P): ${totalP.toFixed(2)} kg</li>
+                        <li>Potassium (K): ${totalK.toFixed(2)} kg</li>
+                    </ul>
+                `;
+            } else {
+                alert('Please enter a valid manure type and quantity.');
+            }
+        }
+    </script>
+</body>
+</html>
