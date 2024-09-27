@@ -58,6 +58,7 @@
             <option value="human_biochar">Human Waste (Biochar)</option>
             <option value="human_raw">Human Waste (Raw)</option>
             <option value="cotton_mulch">Cotton Mulch</option>
+            <option value="sugar_cane_mud">Sugar Cane Mud</option>
         </select>
 
         <label for="quantity">Enter Quantity:</label>
@@ -272,6 +273,23 @@
             <li><strong>Manganese (Mn):</strong> 100 ppm</li>
         </ul>
 
+         <!-- Sugar Cane Mud -->
+        <h3>Sugar Cane Mud</h3>
+        <p>Sugar cane mud, also known as filter cake, is a by-product of the sugar industry. It is rich in organic matter and nutrients beneficial for soil health.</p>
+        <ul>
+            <li><strong>Nitrogen (N):</strong> 1.0%</li>
+            <li><strong>Phosphorus (P₂O₅):</strong> 1.5%</li>
+            <li><strong>Potassium (K₂O):</strong> 0.5%</li>
+            <li><strong>Calcium (Ca):</strong> 2.0%</li>
+            <li><strong>Magnesium (Mg):</strong> 0.8%</li>
+            <li><strong>Sulfur (S):</strong> 0.3%</li>
+            <li><strong>Boron (B):</strong> 20 ppm</li>
+            <li><strong>Iron (Fe):</strong> 500 ppm</li>
+            <li><strong>Zinc (Zn):</strong> 70 ppm</li>
+            <li><strong>Copper (Cu):</strong> 25 ppm</li>
+            <li><strong>Manganese (Mn):</strong> 150 ppm</li>
+        </ul>
+
          <h2>Factors Affecting Nutrient Content</h2>
         <p>It's important to note that the actual nutrient content of manure can vary based on several factors:</p>
 
@@ -383,7 +401,13 @@
                 "N": 0.5, "P": 0.2, "K": 0.5,
                 "Ca": 0.4, "Mg": 0.2, "S": 0.2,
                 "B": 12, "Fe": 300, "Zn": 50, "Cu": 20, "Mn": 100
+            },
+             "sugar_cane_mud": {
+                "N": 1.0, "P": 1.5, "K": 0.5,
+                "Ca": 2.0, "Mg": 0.8, "S": 0.3,
+                "B": 20, "Fe": 500, "Zn": 70, "Cu": 25, "Mn": 150
             }
+            
         };
 
         function calculateNutrients() {
